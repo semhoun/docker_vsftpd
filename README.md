@@ -24,6 +24,12 @@ This image uses environment variables to allow the configuration of some paramet
 
 ----
 
+* Variable name: `FTP_BANNER`
+* Default value:  Welcome to My FTP Server
+* Accepted values: any string
+* Description: Banner message the vsftpd server displays when the ftp or sftp client connects to the server.
+
+----
 * Variable name: `USER_ID`
 * Default value: 33
 * Accepted values: any integer
@@ -53,7 +59,7 @@ This image uses environment variables to allow the configuration of some paramet
 ----
 
 * Variable name: `PASV_ADDRESS`
-* Default value: 127.0.0.1 .
+* Default value: Docker host IP / Hostname.
 * Accepted values: Any IPv4 address or Hostname (see PASV_ADDRESS_RESOLVE).
 * Description: If you don't specify an IP address to be used in passive mode, the routed IP address of the Docker host will be used. Bear in mind that this could be a local address.
 
