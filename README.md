@@ -16,7 +16,7 @@ This image uses environment variables to allow the configuration of some paramet
 * Variable name: `USERS`
 * Default value: `admin|<ramdom password>||ro`
 * Accepted values: `name1|password1|[folder1][|<rw|ro>] name2|password2|[folder2][|<rw|ro>]`
-* Description: List of user separated by a space, user list will be exportted on STDOUT.  If folder is not specified it will be `/ftp/<name/`.
+* Description: List of user separated by a space or new line \n, user list will be exported on STDOUT.  If folder is not specified it will be `/ftp/<name/`.
 * Exemple:
   * `user|password foo|bar|/ftp/foo`
   * `user|password|/ftp/userddir|rw`
@@ -148,7 +148,9 @@ services:
     image: semhoun/vsftpd
     restart: always
     environment:
-      USERS: "user|p@ssw0rd|/ftp/user/|rw"
+      USERS: |
+        user1|p@ssw0rd|/ftp/user1/|rw
+        user2|p@ssw0rd|/ftp/user2/|ro
       BANNER: "Welcome to Semhoun vsFTP"
       PASV_ADDRESS: "192.168.13.1"
       PASV_MIN_PORT: 21000
